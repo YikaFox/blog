@@ -1,0 +1,57 @@
+import _ from "./utils.js";
+import e from "./plugins/typed.js";
+import t from "./tools/lightDarkSwitch.js";
+import o from "./layouts/lazyload.js";
+import r from "./tools/scrollTopBottom.js";
+import n from "./tools/localSearch.js";
+import a from "./tools/codeBlock.js";
+import i from "./layouts/bookmarkNav.js";
+export const main = {
+	themeInfo: {
+		theme: `Redefine v${theme.version}`,
+		author: "EvanNotFound",
+		repository: "https://github.com/EvanNotFound/hexo-theme-redefine"
+	},
+	localStorageKey: "REDEFINE-THEME-STATUS",
+	styleStatus: {
+		isExpandPageWidth: !1,
+		isDark: theme.colors.default_mode && "dark" === theme.colors.default_mode,
+		fontSizeLevel: 0,
+		isOpenPageAside: !0
+	},
+	printThemeInfo: () => {
+		console.log(
+			'使用Hexo实现 感谢Theme: https://github.com/EvanNotFound/hexo-theme-redefine'
+			),
+			console.log(
+				'祝你有美好的一天'
+				)
+	},
+	setStyleStatus: () => {
+		localStorage.setItem(main.localStorageKey, JSON.stringify(main.styleStatus))
+	},
+	getStyleStatus: () => {
+		let _ = localStorage.getItem(main.localStorageKey);
+		if (_) {
+			_ = JSON.parse(_);
+			for (let e in main.styleStatus) main.styleStatus[e] = _[e];
+			return _
+		}
+		return null
+	},
+	refresh: () => {
+		_(), t(), r(), i(), 0 !== theme.home_banner.subtitle.text.length && location.pathname === config.root &&
+			e("subtitle"), !0 === theme.navbar.search.enable && n(), !0 === theme.articles.code_block.copy &&
+			a(), !0 === theme.articles.lazyload && o()
+	}
+};
+export function initMain() {
+	main.printThemeInfo(), main.refresh()
+}
+document.addEventListener("DOMContentLoaded", initMain);
+try {
+	swup.hooks.on("page:view", (() => {
+		main.refresh()
+	}))
+} catch (s) {}
+//# sourceMappingURL=main.js.map
