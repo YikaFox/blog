@@ -21,8 +21,11 @@ export const main = {
 	},
 	printThemeInfo: () => {
 		console.log(
-			's'
-			)
+			'使用Hexo实现 感谢Theme: https://github.com/EvanNotFound/hexo-theme-redefine'
+			),
+			console.log(
+				'祝你有美好的一天'
+				)
 	},
 	setStyleStatus: () => {
 		localStorage.setItem(main.localStorageKey, JSON.stringify(main.styleStatus))
