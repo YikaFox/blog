@@ -12,7 +12,7 @@ export const main = {
   themeInfo: {
     theme: `Redefine v${theme.version}`,
     author: "EvanNotFound",
-    repository: "",
+    repository: "https://github.com/EvanNotFound/hexo-theme-redefine",
   },
   localStorageKey: "REDEFINE-THEME-STATUS",
   styleStatus: {
