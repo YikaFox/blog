@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ika - A little world</title>
+<link rel="icon" href="http://q2.qlogo.cn/headimg_dl?dst_uin=1665513024&spec=5" type="image/png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* 禁止滚动条 */
+}
+
+body {
+  min-height: 100dvh;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #fff;
+  background-image: url('https://origin.picgo.net/2025/08/11/wallhaven-wqery6-dark7cccd7d391c9077a.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  /* 背景切换淡入淡出核心 */
+  transition: background-image 0.6s ease-in-out, transform 0.6s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px;
+}
+
+.card {
+  width: clamp(360px, 70vw, 800px);
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255,255,255,0.4);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card:hover {
+  border-color: rgba(255,255,255,0.8);
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+}
+
+.card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.v-sep {
+  width: 2px;
+  margin: 0 16px;
+  align-self: stretch;
+  background-color: #ffffff;
+}
+
+.card-content { flex: 1; }
+
+.card-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.Big-name {
+  font-size: 2.7em;
+  font-weight: 800;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.small {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d7d7d7;
+  margin-left: 20px;
+}
+
+.h-sep {
+  width: 100%;
+  height: 2px;
+  margin: 8px 0 12px;
+  background-color: #ffffff;
+}
+
+.card-blog {
+  margin-top: 12px;
+  text-align: right;
+}
+.card-blog a {
+  color: #fff;
+  text-decoration: none;
+}
+.card-blog a:hover { color: #ccc; }
+
+.links-bar {
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  justify-content: center;
+}
+.links-bar a {
+  color: #fff;
+  text-decoration: none;
+}
+.links-bar a:hover { color: #ccc; }
+.links-bar span { color: rgba(255,255,255,0.4); }
+
+@media (max-width: 1024px) {
+  .card { width: 90vw; }
+  .card-icon { width: 64px; height: 64px; }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+    justify-content: center;
+  }
+  .card {
+    width: 80vw;
+    padding: 14px;
+  }
+  .card-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .v-sep { display: none; }
+  .card-icon { width: 56px; height: 56px; }
+  .Big-name { font-size: 2.2em; }
+  .links-bar { font-size: 14px; }
+}
+
+@media (max-width: 360px) {
+  .card { width: 92vw; }
+}
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="card-header">
+      <img src="http://q2.qlogo.cn/headimg_dl?dst_uin=1665513024&spec=5" alt="我的头像" class="card-icon">
+      <div class="v-sep" aria-hidden="true"></div>
+      <div class="card-content">
+        <div class="card-name">Name：</div>
+        <div class="Big-name">燦燃！</div>
+        <div class="h-sep" aria-hidden="true"></div>
+        <div class="card-name">About me:</div>
+        <div class="small">身高 177CM 体重 56KG | 喜欢猫猫，家里有一只小猫。</div>
+        <div class="small">爱好是 COC，是 KP，带过不少团，包括自编和网络团。</div>
+        <div class="small">放不下身边所有的人，喜欢所有在乎过我的人。</div>
+      </div>
+    </div>
+
+    <div class="card-blog">
+      <a href="https://YikaFox.cn" target="_blank"><i class="fa-regular fa-map"></i> 冒险地图！</a>
+    </div>
+  </div>
+
+  <div class="links-bar">
+    <a href="https://github.com/YikaFox" target="_blank"><i class="fa-brands fa-github"></i> Github</a>
+    <span>|</span>
+    <a href="https://space.bilibili.com/3546645346126305" target="_blank"><i class="fa-brands fa-bilibili"></i> Bilibili</a>
+    <span>|</span>
+    <a href="https://user.qzone.qq.com/1665513024" target="_blank"><i class="fa-regular fa-star"></i> Qzone</a>
+    <span>|</span>
+    <a href="mailto:iskiri@qq.com"><i class="fa-regular fa-envelope"></i> E-mail</a>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const body = document.body;
+  const card = document.querySelector('.card');
+
+  const darkBg = "https://origin.picgo.net/2025/08/11/wallhaven-wqery6-dark7cccd7d391c9077a.png";
+  const lightBg = "https://origin.picgo.net/2025/08/11/wallhaven-wqery6-light243102ee190697f3.png";
+
+  let timeoutId;
+  let isTransitioning = false;
+
+  card.addEventListener('mouseenter', function () {
+    if (isTransitioning) return;
+    clearTimeout(timeoutId);
+    body.style.backgroundImage = `url('${lightBg}')`;
+    body.style.transform = "scale(1.02)";
+    isTransitioning = true;
+    setTimeout(() => isTransitioning = false, 600);
+  });
+
+  card.addEventListener('mouseleave', function () {
+    if (isTransitioning) return;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      body.style.backgroundImage = `url('${darkBg}')`;
+      body.style.transform = "scale(1)";
+      isTransitioning = true;
+      setTimeout(() => isTransitioning = false, 600);
+    }, 400);
+  });
+
+  card.addEventListener('mousemove', function () {
+    if (isTransitioning) return;
+    clearTimeout(timeoutId);
+  });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const body = document.body;
+  const card = document.querySelector('.card');
+
+  const darkBg = "https://origin.picgo.net/2025/08/11/wallhaven-wqery6-dark7cccd7d391c9077a.png";
+  const lightBg = "https://origin.picgo.net/2025/08/11/wallhaven-wqery6-light243102ee190697f3.png";
+
+  let isHovering = false;
+  let isTransitioning = false;
+  let restoreTimeout = null;
+
+  function setBackground(imageUrl, scale = 1) {
+    body.style.backgroundImage = `url('${imageUrl}')`;
+    body.style.transform = `scale(${scale})`;
+  }
+
+  function applyLightBackground() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    setBackground(lightBg, 1.02);
+    setTimeout(() => {
+      isTransitioning = false;
+    }, 600);
+  }
+
+  function applyDarkBackground() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    setBackground(darkBg, 1);
+    setTimeout(() => {
+      isTransitioning = false;
+    }, 600);
+  }
+
+  card.addEventListener('mouseenter', () => {
+    isHovering = true;
+    if (restoreTimeout) {
+      clearTimeout(restoreTimeout);
+      restoreTimeout = null;
+    }
+    applyLightBackground();
+  });
+
+  card.addEventListener('mouseleave', () => {
+    isHovering = false;
+    if (restoreTimeout) clearTimeout(restoreTimeout);
+    restoreTimeout = setTimeout(() => {
+      if (!isHovering) applyDarkBackground();
+    }, 300); // 稍微延迟恢复，避免闪烁
+  });
+});
+
+</script>
+
+</body>
+</html>
